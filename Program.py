@@ -13,42 +13,46 @@ class Program():
 
         print("Player stats/info\n")
         print("Name is " + hero.name)        
-        print("Health is " + hero.health) 
-        print("Damage is " + hero.attackPower)
+        print("Health is " + str(hero.health))
+        print("Damage is " + str(hero.attackPower))
 
-        print("Would you Like to Start Auto Combat Game, Enter Y")
-        input("")
-
-        if input().lower() == "y":
+        answer = input("Would you like to start Auto Combat? Enter Y\n")
+        print("You entered: " + answer)
+        if answer.lower() == "y":
             roll = random.randint(1, 2) 
+            roll = 1
             if roll > 1:
                 battle = True
                 while battle == True:
                     print("You attack " + enemy.name)
                     dmg.takeDmg(enemy)
-                    print(enemy.name + " Health is " + enemy.health)
+                    print(enemy.name + " Health is " + str(enemy.health))
                     if enemy.health <= 0:
+                        print("You win!")
                         break
                     print(enemy.name +" attacks you ")
                     dmg.takeDmg(hero)
-                    print(hero.name + " Health is " + hero.health)
+                    print(hero.name + " Health is " + str(hero.health))
                     if hero.health <= 0:
+                        print("You lose!")
                         break
             if roll <= 1:
                 battle = True
                 while battle == True:
                     print(enemy.name +" attacks you ")
                     dmg.takeDmg(hero)
-                    print(hero.name + " Health is " + hero.health)
+                    print(hero.name + " Health is " + str(hero.health))
                     if hero.health <= 0:
+                        print("You lose!")
                         break
                     print("You attack " + enemy.name)
                     dmg.takeDmg(enemy)
-                    print(enemy.name + " Health is " + enemy.health)
+                    print(enemy.name + " Health is " + str(enemy.health))
                     if enemy.health <= 0:
+                        print("You win!")
                         break    
 
 
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    Program.main()

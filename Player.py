@@ -1,6 +1,8 @@
 from Character import Character 
 
 class Player(Character):
-    def __init__(self, maxHealth=100, attackPower=14, name="Hero"):
+    def __init__(self, name="Player", gender="Male", creature=None):
         self.name = name
-        super().__init__(maxHealth, attackPower)
+        self.gender = gender
+        self.creature = creature
+        super().__init__(name, gender, creature)
